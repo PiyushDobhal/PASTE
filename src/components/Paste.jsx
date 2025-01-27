@@ -24,7 +24,7 @@ const Paste = () => {
         placeholder="Search here"
         onChange={(e) => setText(e.target.value)}
       />
-      <div className="flex flex-col w-full gap-8 mt-5">
+      <div className="flex flex-col  w-full gap-8 mt-5">
         {filteredData.length > 0 &&
           filteredData.map((paste) => {
             return (
@@ -44,7 +44,7 @@ const Paste = () => {
                 <div className="w-full break-words overflow-hidden line-clamp-3 whitespace-pre-wrap m-3">
                   {paste.content}
                 </div><hr/>
-                <div className="flex gap-9 flex-row place-content-evenly mt-3 mb-2">
+                <div className="flex gap-2 flex-row overflow-auto place-content-evenly mt-3 mb-2 ">
                   <button className="rounded border p-1 text-blue-400 hover:cursor-pointer">
                     <a href={`/?pasteId=${paste?._id}`}>EDIT</a>
                   </button>
