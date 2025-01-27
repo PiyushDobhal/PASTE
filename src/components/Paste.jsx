@@ -30,12 +30,20 @@ const Paste = () => {
             return (
               <div
                 key={paste?._id}
-                className="border flex justify-evenly flex-col  p-2 w-full sm:w-3/4 mx-auto rounded-xl"
+                className="border flex justify-evenly flex-col p-2 w-full sm:w-3/4 mx-auto rounded-xl"
               >
-                <div className="text-2xl mx-3 text-amber-400 font-bold">{paste.title}</div>
-                <div className="w-full break-words whitespace-pre-wrap m-3">
-                  {paste.content}
+                <div className="text-2xl mx-3 text-amber-400 font-bold">
+                  {paste.title}
                 </div>
+                <div className="text-sm mx-3 text-blue-500 flex gap-4 font-bold">
+                  <span className="text-cyan-600 font-semibold">
+                    CREATED AT:
+                  </span>
+                  {paste.createdAt}
+                </div>
+                <div className="w-full break-words overflow-hidden line-clamp-3 whitespace-pre-wrap m-3">
+                  {paste.content}
+                </div><hr/>
                 <div className="flex gap-9 flex-row place-content-evenly mt-3 mb-2">
                   <button className="rounded border p-1 text-blue-400 hover:cursor-pointer">
                     <a href={`/?pasteId=${paste?._id}`}>EDIT</a>
@@ -45,7 +53,7 @@ const Paste = () => {
                   </button>
                   <button
                     onClick={() => handleDelete(paste?._id)}
-                    className="rounded border p-1 text-red-300 hover:cursor-pointer"
+                    className="rounded border p-1 text-red-400 hover:cursor-pointer"
                   >
                     DELETE
                   </button>

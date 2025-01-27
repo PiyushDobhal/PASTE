@@ -35,7 +35,7 @@ const ViewPaste = () => {
           value={paste.content}
           disabled
           placeholder="Enter content here"
-          rows={20}
+          rows={17}
         />
       </div>
     </div>

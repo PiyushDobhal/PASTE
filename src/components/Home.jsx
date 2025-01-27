@@ -30,7 +30,7 @@ const Home = () => {
       title: title,
       content: value,
       _id: pasteId || Date.now().toString(36),
-      createdAt: new Date().toISOString(),
+      createdAt: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
     };
 
     if (title.trim() === "" && value.trim() === "") {
@@ -71,7 +71,7 @@ const Home = () => {
           value={value}
           placeholder="Enter content here"
           onChange={(e) => setValue(e.target.value)}
-          rows={20}
+          rows={17}
         />
       </div>
     </div>
