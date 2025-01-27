@@ -5,9 +5,7 @@ import toast from "react-hot-toast";
 
 const Paste = () => {
   const [text, setText] = useState("");
-
   const pastes = useSelector((state) => state.paste.pastes);
-
   const dispatch = useDispatch();
 
   const filteredData = pastes.filter((paste) =>
@@ -19,26 +17,26 @@ const Paste = () => {
   }
 
   return (
-    <div className="bg-black/95 min-h-screen px-[25%] text-white">
+    <div className="bg-black/95 min-h-screen justify-items-center px-4 overflow-y-hidden text-white">
       <input
-        className="p-2 rounded-xl w-[350px]  m-7 ml-10 border"
+        className="p-2 rounded-xl m-7 justify-center border"
         type="search"
         placeholder="Search here"
         onChange={(e) => setText(e.target.value)}
       />
-      <div className="flex flex-col gap-8 mt-5">
+      <div className="flex flex-col w-full gap-8 mt-5">
         {filteredData.length > 0 &&
           filteredData.map((paste) => {
             return (
               <div
                 key={paste?._id}
-                className="border flex justify-evenly flex-col items-center ml-10 p-2  w-[700px] rounded-xl"
+                className="border flex justify-evenly flex-col  p-2 w-full sm:w-3/4 mx-auto rounded-xl"
               >
-                <div className="text-2xl font-bold">{paste.title}</div>
-                <div className=" w-full break-words whitespace-pre-wrap m-3 ml-2">
+                <div className="text-2xl mx-3 text-amber-400 font-bold">{paste.title}</div>
+                <div className="w-full break-words whitespace-pre-wrap m-3">
                   {paste.content}
                 </div>
-                <div className="flex  gap-9 flex-row place-content-evenly mt-3 mb-2 ">
+                <div className="flex gap-9 flex-row place-content-evenly mt-3 mb-2">
                   <button className="rounded border p-1 text-blue-400 hover:cursor-pointer">
                     <a href={`/?pasteId=${paste?._id}`}>EDIT</a>
                   </button>
@@ -67,7 +65,7 @@ const Paste = () => {
                           .share({
                             title: paste.title,
                             text: paste.content,
-                            url: window.location.href, 
+                            url: window.location.href,
                           })
                           .then(() => console.log("Share successful"))
                           .catch((error) =>
